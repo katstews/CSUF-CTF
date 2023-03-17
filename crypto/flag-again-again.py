@@ -1,4 +1,4 @@
-#each value was xor'd with the next value, so nothing encrypted 27
+#each value was xor'd with the next value, so nothing encrypted 102
 cipher = [102, 10, 13, 6, 28, 74, 69, 43, 108, 93, 
  13, 17, 11, 9, 4, 7, 44, 110, 69, 7, 64,
  95, 10, 27]

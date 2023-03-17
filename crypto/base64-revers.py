@@ -1,6 +1,5 @@
 #had to implement my own custom base64 decoder using
 #the given 64-bit long string
-import base64
 
 r_alphabet = "/+9876543210zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA"
 cipher = "mZOemISdy5yUiMuNm4ygiM+Igv"

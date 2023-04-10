@@ -2,7 +2,7 @@ mainly just for me to keep track of how I even was able to solve these challenge
 
 ## pwn - how2flag (bufferover flow challenge)
 ### 4/10/23
-Just figured out how to do a buffer overflow using python. Very interesting. first off in the pwn challenge, I was given a binary file and a C file containing how the program worked. the binary file was a executable elf file. I used objdump to disassemble the elf file. To do an bufferoverflow exploit, you would need to know the size of the buffer you want to exploit **plus** the address of the function you want to exploit. How it works is once you exploit the buffer you want to the tell the program what address you want to access. 
+I just learned out how to do a buffer overflow using python. Very interesting. First off in the pwn challenge, I was given a binary file and a C file containing how the program worked. the binary file was a executable elf file. I used objdump to disassemble the elf file. To do an bufferoverflow exploit, you would need to know the size of the buffer you want to exploit **plus** the address of the function you want to exploit. How it works is once you exploit the buffer you want to the tell the program what address you want to access. 
 
 In this case objdump would work, but a friend recommended I try ghidra. Had to open it up with Kali, as it was too difficult to install on M1. Anyways, with the guidance of a friend, I found that the actual size of the buffer was not 64 but actually "0x48" which is 73 in decimal. 
 
@@ -13,3 +13,5 @@ As shown in the image, the actual size of the buffer was 73. So the input I need
 <img width="1062" alt="Screenshot 2023-04-10 at 4 14 14 PM" src="https://user-images.githubusercontent.com/112781868/231016637-ac1edaae-a041-4c19-a80f-e0737fff03ad.png">
 
 Now its time for the hecking 😎. 
+
+I now know the max size of the buffer and the location of the flag() function, the two things I need to exploit this program. The biggest thing I forgot to mention, the **gets()** function is very unsafe in C, as it does not do __boundary checking__. This is only the thing making this whole buffer overflow thing from happening. Next thing I learned from the friend, when performing a binary overflow, you have to input the address in little endian form. Not too sure why, but my understanding it has to do with how the computer relays information. Little endian stores the (LSB) Least Signifcant Byte is store first! Meaning 0x12345678 ==> 0x78 0x56 0x34 0x12. Essentially, little endian stores the string backwards. 

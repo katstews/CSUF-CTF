@@ -8,7 +8,7 @@ In this case objdump would work, but a friend recommended I try ghidra. Had to o
 
 <img width="902" alt="Screenshot 2023-04-10 at 4 11 19 PM" src="https://user-images.githubusercontent.com/112781868/231016331-c9831d2d-5f00-484c-bd51-7e4bc35b819c.png">
 
-As shown in the image, the actual size of the buffer was 73 🤔. So the input I needed to be shy of the size 73. Using Ghidra (or objdump), I was also able to find the address of the flag() function, which was at address, "0x0401146"
+As shown in the image, the actual size of the buffer was 73 🤔. So the input I needed to be shy of the size 73. Using Ghidra (or objdump), I was also able to find the address of the flag() function, which was at address, "0x04011d6"
 
 <img width="1062" alt="Screenshot 2023-04-10 at 4 14 14 PM" src="https://user-images.githubusercontent.com/112781868/231016637-ac1edaae-a041-4c19-a80f-e0737fff03ad.png">
 

@@ -16,7 +16,9 @@ Now its time for the hecking 😎.
 
 I now know the max size of the buffer and the location of the flag() function, the two things I need to exploit this program. The biggest thing I forgot to mention, the **gets()** function is very unsafe in C, as it does **_not_** do __boundary checking__. This is only the thing making this whole buffer overflow thing from happening. 
 
-Next thing I learned from the friend, when performing a buffer overflow, you have to input the address in little endian form. Not too sure why, but my understanding it has to do with how the computer relays information. Little endian stores the (LSB) Least Signifcant Byte first! Essentially, little endian stores the string backwards. Luckily pwn has that kind of function, so I just ran p64(address), to convert the flag address to little endian format (I should have paid attention in intro to c++...). 
+Next thing I learned from the friend, when performing a buffer overflow, you have to input the address in little endian form. Not too sure why, but my understanding it has to do with how the computer relays information. Little endian stores the (LSB) Least Signifcant Byte first! Essentially, little endian stores the string backwards ISH. Luckily pwn has that kind of function, so I just ran p64(address), to convert the flag address to little endian format (I should have paid attention in intro to c++...).
+
+I finally did the research, so little endian means to store the least significant bit first. So the least significant bit is the start of the string. So in essence, you do have to techincally "reverse" the string. Right so if the address was 0xDEAD (little endian) -> 0xADDE or (in shellcode) '/xAD/xDE'
 
 Alright, so I created my 72 bit length string and added my little endian address and fed it to the remote program. The string is:
               b'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\xdb\x11@\x00\x00\x00\x00\x00'

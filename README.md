@@ -1,7 +1,7 @@
 mainly just for me to keep track of how I even was able to solve these challenges. 
 
 ## pwn - how2flag (bufferover flow challenge)
-### ~~4/10/23~~~
+### ~~4/10/23~~
 ### 11/29/23 
 I just learned out how to do a buffer overflow using python. Very interesting. First off in the pwn challenge, I was given a binary file and a C file containing how the program worked. The binary file was a executable ELF file. I used objdump to disassemble the elf file, meaning I "reverse engineered" the executable to try to find the closest match to its original C code. To do an bufferoverflow exploit, you would need to know the size of the buffer you want to exploit **plus** the address of the function you want to exploit. How it works is once you exploit the buffer you want to the tell the program what address you want to access. 
 
